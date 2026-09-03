@@ -163,7 +163,7 @@ export default function HomePage() {
       </section>
 
       {/* STAT BAND */}
-      <section style={{ background: "#ffffff", borderBottom: "1px solid rgba(20,33,31,0.08)" }}>
+      <section style={{ background: "var(--tbc-bg, #ffffff)", borderBottom: "1px solid var(--tbc-border, rgba(20,33,31,0.08))" }}>
         <div className="tbc-container" style={{ paddingTop: 40, paddingBottom: 40 }}>
           <StaggerGrid className="tbc-stat-grid">
             {HOME_STATS.map((stat) => (
@@ -171,10 +171,10 @@ export default function HomePage() {
                 key={stat.label}
                 className="tbc-stat-item"
               >
-                <div style={{ font: "800 52px/1 'Inter'", letterSpacing: "-.02em", color: "#1B4D4A" }}>
+                <div style={{ font: "800 52px/1 'Inter'", letterSpacing: "-.02em", color: "#24D155" }}>
                   {stat.value}
                 </div>
-                <div style={{ font: "500 16px/1.4 'Inter'", color: "#54615e", marginTop: 14 }}>
+                <div style={{ font: "500 16px/1.4 'Inter'", color: "var(--tbc-text-muted, #54615e)", marginTop: 14 }}>
                   {stat.label}
                 </div>
               </div>
@@ -201,19 +201,19 @@ export default function HomePage() {
                 >
                   Who We Are
                 </div>
-                <h2 className="tbc-section-h2" style={{ color: "#14211f", maxWidth: 400 }}>
+                <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", maxWidth: 400 }}>
                   A trusted gateway for Web3 growth in Ghana.
                 </h2>
               </>
             }
             rightContent={
               <>
-                <p style={{ font: "400 20px/1.65 'Inter'", color: "#54615e", marginBottom: 28 }}>
+                <p style={{ font: "400 20px/1.65 'Inter'", color: "var(--tbc-text-muted, #54615e)", marginBottom: 28 }}>
                   TBC Ghana is a trusted gateway for blockchain and Web3 growth in Ghana and Africa
                   educating new users, supporting builders, and connecting global ecosystems with
                   local communities.
                 </p>
-                <Link href="/about" style={{ font: "700 16px/1 'Inter'", color: "#1B4D4A", textDecoration: "none" }}>
+                <Link href="/about" style={{ font: "700 16px/1 'Inter'", color: "#24D155", textDecoration: "none" }}>
                   Read our story →
                 </Link>
               </>
@@ -264,14 +264,26 @@ export default function HomePage() {
                   marginBottom: 16,
                 }}
               >
-                What We Do
+                What We Do · Our Pillars
               </div>
               <h2 className="tbc-section-h2" style={{ color: "#fff" }}>
                 Five pillars, one ecosystem.
               </h2>
             </div>
-            <Link href="/about" style={{ font: "700 15px/1 'Inter'", color: "#24D155", textDecoration: "none" }}>
-              See all pillars →
+            <Link
+              href="/about"
+              style={{
+                font: "600 14px/1 'Inter'",
+                color: "#fff",
+                background: "rgba(255,255,255,0.12)",
+                backdropFilter: "blur(8px)",
+                border: "1px solid rgba(255,255,255,0.2)",
+                padding: "10px 18px",
+                borderRadius: 8,
+                textDecoration: "none",
+              }}
+            >
+              Learn about our pillars →
             </Link>
           </div>
         </div>
@@ -359,10 +371,10 @@ export default function HomePage() {
             }}
           >
             <div style={{ maxWidth: 660 }}>
-              <h2 style={{ font: "800 38px/1.15 'Inter'", letterSpacing: "-.02em", color: "#14211f", marginBottom: 12 }}>
+              <h2 style={{ font: "800 38px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211f)", marginBottom: 12 }}>
                 There&rsquo;s a place for you in the Circle.
               </h2>
-              <p style={{ font: "400 18px/1.5 'Inter'", color: "#54615e" }}>
+              <p style={{ font: "400 18px/1.5 'Inter'", color: "var(--tbc-text-muted, #54615e)" }}>
                 Whether you&rsquo;re just starting out or already building, join a structured
                 ecosystem made for you.
               </p>
@@ -412,7 +424,7 @@ export default function HomePage() {
               >
                 Partners
               </div>
-              <h2 className="tbc-section-h2" style={{ color: "#14211f" }}>
+              <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)" }}>
                 Building the ecosystem together.
               </h2>
             </div>
@@ -450,7 +462,7 @@ export default function HomePage() {
         >
           Upcoming
         </div>
-        <h2 className="tbc-section-h2" style={{ color: "#14211f", marginBottom: 48 }}>
+        <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", marginBottom: 48 }}>
           What&rsquo;s coming up next.
         </h2>
         <StaggerGrid className="tbc-grid-2" staggerDelay={0.15}>
@@ -478,19 +490,19 @@ export default function HomePage() {
                 Weekly · Online
               </span>
             </div>
-            <div style={{ font: "700 24px/1.2 'Inter'", color: "#14211f" }}>Weekly X Space</div>
-            <p style={{ font: "400 16px/1.55 'Inter'", color: "#54615e", flex: 1 }}>
+            <div style={{ font: "700 24px/1.2 'Inter'", color: "var(--tbc-text, #14211f)" }}>Weekly X Space</div>
+            <p style={{ font: "400 16px/1.55 'Inter'", color: "var(--tbc-text-muted, #54615e)", flex: 1 }}>
               Every Friday at 19:00 GMT  blockchain education, African Web3 stories, founder
               interviews and market insights.
             </p>
-            <Link href="/events" style={{ font: "700 15px/1 'Inter'", color: "#1B4D4A", textDecoration: "none" }}>
+            <Link href="/events" style={{ font: "700 15px/1 'Inter'", color: "#24D155", textDecoration: "none" }}>
               See all events →
             </Link>
           </div>
           <div
-            className="tbc-card-dark tbc-card-padding"
+            className="tbc-card tbc-card-padding"
             style={{
-              background: "#e1e6e3",
+              background: "var(--tbc-surface, #ffffff)",
               borderRadius: 16,
               display: "flex",
               flexDirection: "column",
@@ -512,10 +524,10 @@ export default function HomePage() {
                 Flagship · Nov 2026
               </span>
             </div>
-            <div style={{ font: "700 24px/1.2 'Inter'", color: "#14211f" }}>
+            <div style={{ font: "700 24px/1.2 'Inter'", color: "var(--tbc-text, #14211f)" }}>
               Blockchain &amp; Crypto Conference
             </div>
-            <p style={{ font: "400 16px/1.55 'Inter'", color: "#54615e", flex: 1 }}>
+            <p style={{ font: "400 16px/1.55 'Inter'", color: "var(--tbc-text-muted, #54615e)", flex: 1 }}>
               Ghana&rsquo;s flagship Web3 gathering  keynotes, startup showcases, hackathons,
               networking and policy discussions. Coming this November.
             </p>

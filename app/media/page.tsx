@@ -75,14 +75,14 @@ export default function MediaPage() {
             >
               Latest ecosystem report
             </span>
-            <h2 style={{ font: "800 32px/1.15 'Inter'", letterSpacing: "-.02em", color: "#14211f", marginBottom: 14 }}>
+            <h2 style={{ font: "800 32px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211f)", marginBottom: 14 }}>
               The State of Web3 in Ghana
             </h2>
-            <p style={{ font: "400 17px/1.6 'Inter'", color: "#54615e", marginBottom: 24 }}>
+            <p style={{ font: "400 17px/1.6 'Inter'", color: "var(--tbc-text-muted, #54615e)", marginBottom: 24 }}>
               Adoption trends, developer ecosystem growth, and community insights  establishing
               TBC Ghana as an ecosystem intelligence source.
             </p>
-            <a href="#" style={{ font: "700 15px/1 'Inter'", color: "#1B4D4A" }}>
+            <a href="#" style={{ font: "700 15px/1 'Inter'", color: "#24D155" }}>
               Read the report →
             </a>
           </div>
@@ -125,7 +125,7 @@ export default function MediaPage() {
                   style={{
                     font: "700 19px/1.3 'Inter'",
                     letterSpacing: "-.01em",
-                    color: "#14211f",
+                    color: "var(--tbc-text, #14211f)",
                     marginBottom: 10,
                   }}
                 >

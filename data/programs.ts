@@ -44,7 +44,7 @@ export const PROGRAMS: Program[] = [
       "A recurring X Space, podcast and YouTube show covering blockchain education, African Web3 stories, founder interviews and market insights.",
     Icon: MediaIcon,
     color: "#D03433",
-    badge: "Live every Friday · 19:00 PM GMT",
+    badge: "Live every Friday · 19:00 GMT",
   },
   {
     title: "Annual Flagship Conference",

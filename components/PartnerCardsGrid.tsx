@@ -19,25 +19,25 @@ export default function PartnerCardsGrid() {
         <div
           key={partner.name}
           style={{
-            background: "#FFFFFF",
-            border: "1px solid rgba(20, 33, 31, 0.08)",
+            background: "var(--tbc-surface, #FFFFFF)",
+            border: "1px solid var(--tbc-border, rgba(20, 33, 31, 0.08))",
             borderRadius: 20,
             padding: "28px 24px",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
             gap: 14,
-            boxShadow: "0 4px 20px rgba(20, 33, 31, 0.06)",
-            transition: "box-shadow 0.25s ease, transform 0.25s ease",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
+            transition: "box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease",
           }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLDivElement).style.boxShadow =
-              "0 10px 36px rgba(20, 33, 31, 0.13)";
+              "0 10px 36px rgba(0, 0, 0, 0.13)";
             (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
           }}
           onMouseLeave={(e) => {
             (e.currentTarget as HTMLDivElement).style.boxShadow =
-              "0 4px 20px rgba(20, 33, 31, 0.06)";
+              "0 4px 20px rgba(0, 0, 0, 0.06)";
             (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
           }}
         >
@@ -72,7 +72,7 @@ export default function PartnerCardsGrid() {
           <h3
             style={{
               font: "700 17px/1.3 'Inter'",
-              color: "#14211F",
+              color: "var(--tbc-text, #14211F)",
               margin: 0,
               textAlign: "center",
             }}
@@ -84,7 +84,7 @@ export default function PartnerCardsGrid() {
           <p
             style={{
               font: "400 13.5px/1.65 'Inter'",
-              color: "#54615E",
+              color: "var(--tbc-text-muted, #54615E)",
               margin: 0,
               textAlign: "center",
               flexGrow: 1,
@@ -102,7 +102,7 @@ export default function PartnerCardsGrid() {
                 justifyContent: "center",
                 gap: 8,
                 paddingTop: 14,
-                borderTop: "1px solid rgba(20, 33, 31, 0.08)",
+                borderTop: "1px solid var(--tbc-border, rgba(20, 33, 31, 0.08))",
                 width: "100%",
               }}
             >

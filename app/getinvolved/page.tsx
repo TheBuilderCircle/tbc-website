@@ -58,8 +58,8 @@ export default function GetInvolvedPage() {
             style={{ borderRadius: 16, padding: 28 }}
           >
             <div style={{ width: 32, height: 32, borderRadius: 9, background: way.color, marginBottom: 18 }} />
-            <h3 style={{ font: "700 18px/1.2 'Inter'", color: "#14211f", marginBottom: 8 }}>{way.title}</h3>
-            <p style={{ font: "400 14.5px/1.5 'Inter'", color: "#54615e" }}>{way.description}</p>
+            <h3 style={{ font: "700 18px/1.2 'Inter'", color: "var(--tbc-text, #14211f)", marginBottom: 8 }}>{way.title}</h3>
+            <p style={{ font: "400 14.5px/1.5 'Inter'", color: "var(--tbc-text-muted, #54615e)" }}>{way.description}</p>
           </div>
         ))}
       </section>

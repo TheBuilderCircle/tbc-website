@@ -85,7 +85,7 @@ export default function ProgramsPage() {
               style={{
                 font: "800 26px/1.15 'Inter'",
                 letterSpacing: "-.02em",
-                color: program.dark ? "#fff" : "#14211f",
+                color: program.dark ? "#fff" : "var(--tbc-text, #14211f)",
                 marginBottom: 14,
               }}
             >
@@ -108,7 +108,7 @@ export default function ProgramsPage() {
                     className="tbc-tag"
                     style={{
                       font: "500 13px/1 'Inter'",
-                      color: "#1B4D4A",
+                      color: "var(--tbc-text, #1B4D4A)",
                       background: "var(--tbc-bg)",
                       padding: "8px 13px",
                       borderRadius: 100,
@@ -123,7 +123,7 @@ export default function ProgramsPage() {
             {program.linkLabel && program.linkHref ? (
               <Link
                 href={program.linkHref}
-                style={{ font: "700 15px/1 'Inter'", color: "#1B4D4A", textDecoration: "none" }}
+                style={{ font: "700 15px/1 'Inter'", color: "#24D155", textDecoration: "none" }}
               >
                 {program.linkLabel}
               </Link>
@@ -159,17 +159,17 @@ export default function ProgramsPage() {
                 width: 44,
                 height: 44,
                 borderRadius: 12,
-                background: "#1B4D4A1a",
+                background: "rgba(36, 209, 85, 0.12)",
                 marginBottom: 22,
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                border: "1px solid #1B4D4A33",
+                border: "1px solid rgba(36, 209, 85, 0.25)",
               }}
             >
-              <RESEARCH_PROGRAM.Icon size={22} color="#1B4D4A" />
+              <RESEARCH_PROGRAM.Icon size={22} color="#24D155" />
             </div>
-            <h2 style={{ font: "800 26px/1.15 'Inter'", letterSpacing: "-.02em", color: "#14211f", marginBottom: 14 }}>
+            <h2 style={{ font: "800 26px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211f)", marginBottom: 14 }}>
               {RESEARCH_PROGRAM.title}
             </h2>
           </div>

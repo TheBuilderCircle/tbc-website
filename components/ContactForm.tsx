@@ -21,7 +21,7 @@ export default function ContactForm() {
   return (
     <div
       className="tbc-card tbc-card-padding"
-      style={{ background: "#fff", border: "1px solid rgba(20,33,31,0.08)", borderRadius: 20 }}
+      style={{ background: "var(--tbc-surface, #fff)", border: "1px solid var(--tbc-border, rgba(20,33,31,0.08))", borderRadius: 20 }}
     >
       <form onSubmit={(e) => e.preventDefault()}>
         <div className="tbc-form-grid">
@@ -47,8 +47,8 @@ export default function ContactForm() {
           style={{
             marginTop: 26,
             width: "100%",
-            background: "#14211F",
-            color: "#fff",
+            background: "#24D155",
+            color: "#14211F",
             font: "700 16px/1 'Inter'",
             padding: 17,
             border: "none",

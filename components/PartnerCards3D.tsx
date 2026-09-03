@@ -129,7 +129,7 @@ export default function PartnerCards3D() {
             <div
               style={{
                 font: "700 20px/1.2 'Inter'",
-                color: "#14211f",
+                color: "var(--tbc-text, #14211f)",
                 marginBottom: 10,
               }}
             >

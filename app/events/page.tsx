@@ -126,11 +126,11 @@ export default function EventsPage() {
       {/* UPCOMING LIST */}
       <section className="tbc-container" style={{ paddingTop: 40, paddingBottom: 40 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 12, marginBottom: 28 }}>
-          <h2 style={{ font: "800 28px/1 'Inter'", letterSpacing: "-.02em", color: "#14211f" }}>Upcoming</h2>
+          <h2 style={{ font: "800 28px/1 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211f)" }}>Upcoming</h2>
           <span
             style={{
               font: "600 12px/1 'Inter'",
-              color: "#1B4D4A",
+              color: "#24D155",
               background: "rgba(36,209,85,.16)",
               padding: "7px 12px",
               borderRadius: 100,
@@ -154,7 +154,7 @@ export default function EventsPage() {
                   flex: "none",
                   width: 90,
                   textAlign: "center",
-                  borderRight: "1px solid rgba(20,33,31,0.08)",
+                  borderRight: "1px solid var(--tbc-border, rgba(20,33,31,0.08))",
                   paddingRight: 24,
                 }}
               >
@@ -164,7 +164,7 @@ export default function EventsPage() {
                 </div>
               </div>
               <div style={{ flex: 1 }}>
-                <div style={{ font: "700 19px/1.25 'Inter'", color: "#14211f", marginBottom: 4 }}>
+                <div style={{ font: "700 19px/1.25 'Inter'", color: "var(--tbc-text, #14211f)", marginBottom: 4 }}>
                   {event.title}
                 </div>
                 <div style={{ font: "400 15px/1.4 'Inter'", color: "var(--tbc-text-muted)" }}>{event.subtitle}</div>
@@ -173,7 +173,7 @@ export default function EventsPage() {
                 className="tbc-tag"
                 style={{
                   font: "600 12px/1 'Inter'",
-                  color: event.tagColor === "flagship" ? "#fff" : "#1B4D4A",
+                  color: event.tagColor === "flagship" ? "#fff" : "var(--tbc-text, #1B4D4A)",
                   background: event.tagColor === "flagship" ? "#D03433" : "var(--tbc-bg)",
                   padding: "8px 13px",
                   borderRadius: 100,

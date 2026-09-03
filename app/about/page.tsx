@@ -57,7 +57,7 @@ export default function AboutPage() {
           pipeline. International protocols don&rsquo;t know who to call when they want to enter
           the market.
         </p>
-        <p style={{ font: "400 22px/1.65 'Inter'", color: "#54615e" }}>
+        <p style={{ font: "400 22px/1.65 'Inter'", color: "var(--tbc-text-muted, #54615e)" }}>
           The Builders Circle Ghana changes that. Built on years of grassroots work  meetups,
           university tours, speaking engagements and online community-building  TBC Ghana is
           now formalizing into a structured organization with one goal: to become the leading
@@ -87,13 +87,13 @@ export default function AboutPage() {
           >
             Vision
           </div>
-          <p style={{ font: "500 21px/1.55 'Inter'", color: "#14211f" }}>
+          <p style={{ font: "500 21px/1.55 'Inter'", color: "var(--tbc-text, #14211f)" }}>
             To build the leading Web3 ecosystem infrastructure in Ghana that drives blockchain
             education, community development, ecosystem collaboration, innovation, and market
             growth across Africa.
           </p>
         </div>
-        <div className="tbc-card-dark tbc-card-padding" style={{ background: "#e1e6e3", borderRadius: 16 }}>
+        <div className="tbc-card tbc-card-padding" style={{ background: "var(--tbc-surface, #ffffff)", borderRadius: 16 }}>
           <div
             style={{
               font: "600 12px/1 'Inter'",
@@ -105,7 +105,7 @@ export default function AboutPage() {
           >
             Mission
           </div>
-          <p style={{ font: "500 21px/1.55 'Inter'", color: "#14211f" }}>
+          <p style={{ font: "500 21px/1.55 'Inter'", color: "var(--tbc-text, #14211f)" }}>
             Bring together Ghana&rsquo;s Web3 and blockchain community into one structured
             ecosystem  educating newcomers, developing builders, connecting local talent to
             global opportunity, and giving protocols a trusted partner in the African market.
@@ -116,7 +116,7 @@ export default function AboutPage() {
 
       <ScrollReveal>
       {/* WHAT WE DO / PILLARS */}
-      <section style={{ background: "#fff", borderTop: "1px solid rgba(20,33,31,0.08)", borderBottom: "1px solid rgba(20,33,31,0.08)" }}>
+      <section style={{ background: "var(--tbc-bg)", borderTop: "1px solid var(--tbc-border)", borderBottom: "1px solid var(--tbc-border)" }}>
         <div className="tbc-container tbc-section-padding">
           <div
             style={{
@@ -129,10 +129,10 @@ export default function AboutPage() {
           >
             What We Do · Our Pillars
           </div>
-          <h2 className="tbc-section-h2" style={{ color: "#14211f", marginBottom: 16 }}>
+          <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", marginBottom: 16 }}>
             Five pillars, one ecosystem.
           </h2>
-          <p style={{ font: "400 19px/1.6 'Inter'", color: "#54615e", maxWidth: 620, marginBottom: 48 }}>
+          <p style={{ font: "400 19px/1.6 'Inter'", color: "var(--tbc-text-muted, #54615e)", maxWidth: 620, marginBottom: 48 }}>
             Everything TBC Ghana does maps to five pillars  each with concrete programs behind
             it.
           </p>
@@ -140,10 +140,10 @@ export default function AboutPage() {
             {ABOUT_PILLARS.map((pillar) => (
               <div
                 key={pillar.number}
-                className={`tbc-card-padding tbc-split-grid-about ${pillar.dark ? "tbc-card-dark" : "tbc-card"}`}
+                className="tbc-card tbc-card-padding tbc-split-grid-about"
                 style={{
-                  background: pillar.dark ? "#e1e6e3" : "#fff",
-                  border: pillar.dark ? undefined : "1px solid rgba(20,33,31,0.08)",
+                  background: "var(--tbc-surface, #ffffff)",
+                  border: "1px solid var(--tbc-border, rgba(20,33,31,0.08))",
                   borderRadius: 18,
                 }}
               >
@@ -155,7 +155,7 @@ export default function AboutPage() {
                     style={{
                       font: "800 28px/1.15 'Inter'",
                       letterSpacing: "-.02em",
-                      color: "#14211f",
+                      color: "var(--tbc-text, #14211f)",
                       marginBottom: 12,
                     }}
                   >
@@ -164,7 +164,7 @@ export default function AboutPage() {
                   <p
                     style={{
                       font: "400 16px/1.6 'Inter'",
-                      color: "#54615e",
+                      color: "var(--tbc-text-muted, #54615e)",
                     }}
                   >
                     {pillar.description}
@@ -185,7 +185,7 @@ export default function AboutPage() {
                       <span
                         style={{
                           font: "500 17px/1.4 'Inter'",
-                          color: "#54615e",
+                          color: "var(--tbc-text-muted, #54615e)",
                         }}
                       >
                         {bullet}
@@ -213,7 +213,7 @@ export default function AboutPage() {
         >
           Milestones
         </div>
-        <h2 className="tbc-section-h2" style={{ color: "#14211f", marginBottom: 56 }}>
+        <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", marginBottom: 56 }}>
           From grassroots to institution.
         </h2>
         <div className="tbc-grid-4">

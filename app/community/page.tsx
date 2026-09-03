@@ -84,7 +84,7 @@ export default function CommunityPage() {
       </section>
 
       {/* COMMUNITY PARTNERS SECTION */}
-      <section style={{ background: "#F5F6F4", borderTop: "1px solid rgba(20,33,31,.08)", padding: "80px 0" }}>
+      <section style={{ background: "var(--tbc-bg, #F5F6F4)", borderTop: "1px solid var(--tbc-border, rgba(20,33,31,.08))", padding: "80px 0" }}>
         <div className="tbc-container" style={{ maxWidth: 1160, margin: "0 auto" }}>
           <div style={{ textAlign: "center", marginBottom: 48 }}>
             <div
@@ -92,16 +92,16 @@ export default function CommunityPage() {
                 font: "600 13px/1 'Inter'",
                 letterSpacing: ".18em",
                 textTransform: "uppercase",
-                color: "#1B4D4A",
+                color: "#24D155",
                 marginBottom: 16,
               }}
             >
               Ecosystem Partners
             </div>
-            <h2 style={{ font: "800 36px/1.15 'Inter'", letterSpacing: "-.02em", color: "#14211F", marginBottom: 16 }}>
+            <h2 style={{ font: "800 36px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211F)", marginBottom: 16 }}>
               Communities inside the Circle
             </h2>
-            <p style={{ font: "400 18px/1.6 'Inter'", color: "#54615E", maxWidth: 700, margin: "0 auto 48px auto" }}>
+            <p style={{ font: "400 18px/1.6 'Inter'", color: "var(--tbc-text-muted, #54615E)", maxWidth: 700, margin: "0 auto 48px auto" }}>
               Meet the ecosystem communities, labs, and organizations driving Web3 education, development, and adoption across Ghana and Africa alongside us.
             </p>
           </div>
@@ -111,23 +111,23 @@ export default function CommunityPage() {
       </section>
 
       {/* COMMUNITY IN ACTION GALLERY */}
-      <section style={{ background: "#ffffff", borderTop: "1px solid rgba(20,33,31,.08)", padding: "80px 0" }}>
+      <section style={{ background: "var(--tbc-bg, #ffffff)", borderTop: "1px solid var(--tbc-border, rgba(20,33,31,.08))", padding: "80px 0" }}>
         <div className="tbc-container" style={{ maxWidth: 1160, margin: "0 auto" }}>
           <div
             style={{
               font: "600 13px/1 'Inter'",
               letterSpacing: ".18em",
               textTransform: "uppercase",
-              color: "#1B4D4A",
+              color: "#24D155",
               marginBottom: 16,
             }}
           >
             Community in Action
           </div>
-          <h2 style={{ font: "800 36px/1.15 'Inter'", letterSpacing: "-.02em", color: "#14211F", marginBottom: 16 }}>
+          <h2 style={{ font: "800 36px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text, #14211F)", marginBottom: 16 }}>
             Moments from the Ecosystem
           </h2>
-          <p style={{ font: "400 18px/1.6 'Inter'", color: "#54615E", maxWidth: 700, marginBottom: 48 }}>
+          <p style={{ font: "400 18px/1.6 'Inter'", color: "var(--tbc-text-muted, #54615E)", maxWidth: 700, marginBottom: 48 }}>
             Bringing together builders, founders, and innovators across Web3 & tech meetups, hackathons, and developer bootcamps in Ghana.
           </p>
 

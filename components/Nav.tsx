@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Countdown from "./Countdown";
 import { NAV_LINKS } from "@/data/navLinks";
-
+import ThemeToggle from "./ThemeToggle";
 
 export default function Nav() {
   const pathname = usePathname();
@@ -43,7 +43,7 @@ export default function Nav() {
           />
         </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div className="tbc-nav-links">
             {NAV_LINKS.map((link) => {
               const isActive = pathname === link.href;
@@ -80,6 +80,7 @@ export default function Nav() {
             </a>
           </div>
 
+          <ThemeToggle />
         </div>
 
         <button

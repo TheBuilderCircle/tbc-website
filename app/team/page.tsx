@@ -84,10 +84,10 @@ export default function TeamPage() {
                 <ImagePlaceholder label="headshot" style={{ aspectRatio: "1/1" }} />
               )}
               <div style={{ padding: "20px 22px 24px" }}>
-                <div style={{ font: "700 18px/1.25 'Inter'", letterSpacing: "-.01em", color: "#14211f", marginBottom: 5 }}>
+                <div style={{ font: "700 18px/1.25 'Inter'", letterSpacing: "-.01em", color: "var(--tbc-text, #14211f)", marginBottom: 5 }}>
                   {member.name}
                 </div>
-                <div style={{ font: "500 14px/1.4 'Inter'", color: "#1B4D4A" }}>{member.role}</div>
+                <div style={{ font: "500 14px/1.4 'Inter'", color: "#24D155" }}>{member.role}</div>
               </div>
             </div>
           ))}
