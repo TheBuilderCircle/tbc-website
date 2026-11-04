@@ -24,7 +24,7 @@ export default function Nav() {
             flex: "none",
           }}
         />
-        <span>Flagship Blockchain &amp; Crypto Conference · Accra · November 2026</span>
+        <span>Blockchain &amp; Crypto Conference · Accra · December 2026</span>
         <span style={{ opacity: 0.6 }}>·</span>
         <Countdown variant="banner" />
       </div>
