@@ -24,7 +24,20 @@ export default function Nav() {
             flex: "none",
           }}
         />
-        <span>Blockchain &amp; Crypto Conference · Accra · December 2026</span>
+          <a
+            href="https://bcc.tbcghana.org/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              color: "inherit",
+              textDecoration: "none",
+              cursor: "pointer",
+              fontWeight: 700,
+              fontSize: "16px",
+            }}
+          >
+            Blockchain &amp; Crypto Conference · Accra · December 2026
+          </a>
         <span style={{ opacity: 0.6 }}>·</span>
         <Countdown variant="banner" />
       </div>
