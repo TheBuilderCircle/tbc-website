@@ -31,7 +31,7 @@ export default function Nav() {
           rel="noopener noreferrer"
           className="conference-link"
         >
-          🏛️ Blockchain &amp; Crypto Conference · Accra · December 2026
+          🏛️ Blockchain &amp; Crypto Conference · Accra ·11 December 2026
         </a>
       
         <span style={{ opacity: 0.6 }}>·</span>
