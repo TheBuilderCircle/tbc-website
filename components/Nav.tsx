@@ -24,22 +24,47 @@ export default function Nav() {
             flex: "none",
           }}
         />
-          <a
-            href="https://bcc.tbcghana.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "inherit",
-              textDecoration: "none",
-              cursor: "pointer",
-              fontWeight: 700,
-              fontSize: "16px",
-            }}
-          >
-            Blockchain &amp; Crypto Conference · Accra · December 2026
-          </a>
+      
+        <a
+          href="https://bcc.tbcghana.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="conference-link"
+        >
+          🏛️ Blockchain &amp; Crypto Conference · Accra · December 2026
+        </a>
+      
         <span style={{ opacity: 0.6 }}>·</span>
         <Countdown variant="banner" />
+      
+        <style>{`
+          .conference-link {
+            color: inherit;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 16px;
+            display: inline-block;
+            transition: all 0.25s ease;
+          }
+      
+          .conference-link:hover {
+            color: #24D155;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            transform: scale(1.03);
+          }
+      
+          .conference-link:active {
+            transform: scale(0.98);
+          }
+      
+          .conference-link:focus-visible {
+            outline: 2px solid #24D155;
+            outline-offset: 4px;
+            border-radius: 3px;
+          }
+        `}</style>
       </div>
 
       <nav className="tbc-nav">
