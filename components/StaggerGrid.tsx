@@ -12,73 +12,39 @@ interface StaggerGridProps {
   className?: string;
   style?: React.CSSProperties;
   staggerDelay?: number;
-  direction?: "up" | "down" | "left" | "right" | "scale";
-  triggerOffset?: string;
 }
 
+/** Fades direct children in one after another. Hidden state lives in CSS
+ *  (`.js [data-stagger] > *`), skipped entirely for reduced motion. */
 export default function StaggerGrid({
   children,
-  className = "",
+  className,
   style,
-  staggerDelay = 0.1,
-  direction = "up",
-  triggerOffset = "top 80%",
+  staggerDelay = 0.08,
 }: StaggerGridProps) {
-  const container = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      let x = 0;
-      let y = 0;
-      let scale = 1;
-
-      switch (direction) {
-        case "up":
-          y = 40;
-          break;
-        case "down":
-          y = -40;
-          break;
-        case "left":
-          x = 40;
-          break;
-        case "right":
-          x = -40;
-          break;
-        case "scale":
-          scale = 0.8;
-          break;
-      }
-
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.fromTo(
-        container.current!.children,
-        {
-          opacity: 0,
-          x,
-          y,
-          scale,
-        },
+        ref.current!.children,
+        { opacity: 0, y: 16 },
         {
           opacity: 1,
-          x: 0,
           y: 0,
-          scale: 1,
-          duration: 0.8,
-          ease: "power3.out",
+          duration: 0.7,
+          ease: "power2.out",
           stagger: staggerDelay,
-          scrollTrigger: {
-            trigger: container.current,
-            start: triggerOffset,
-            toggleActions: "play none none reverse",
-          },
+          scrollTrigger: { trigger: ref.current, start: "top 85%", once: true },
         }
       );
     },
-    { scope: container }
+    { scope: ref }
   );
 
   return (
-    <div ref={container} className={className} style={style}>
+    <div ref={ref} data-stagger="" className={className} style={style}>
       {children}
     </div>
   );

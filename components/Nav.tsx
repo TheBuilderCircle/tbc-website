@@ -8,189 +8,125 @@ import Countdown from "./Countdown";
 import { NAV_LINKS } from "@/data/navLinks";
 import ThemeToggle from "./ThemeToggle";
 
+const JOIN_URL = "https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm";
+const CONFERENCE_URL = "https://bcc.tbcghana.org";
+
+function Logo({ width, height }: { width: number; height: number }) {
+  return (
+    <>
+      <Image
+        className="logo-on-dark"
+        src="/images/tbc-logos/tbc-ghana-logo-reverse-color.svg"
+        alt="TBC Ghana Logo"
+        width={width}
+        height={height}
+        preload
+      />
+      <Image
+        className="logo-on-light"
+        src="/images/tbc-logos/tbc-ghana-logo-color.svg"
+        alt="TBC Ghana Logo"
+        width={width}
+        height={height}
+      />
+    </>
+  );
+}
+
 export default function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+
   return (
-    <div style={{ position: "sticky", top: 0, zIndex: 100 }}>
-      <div className="tbc-banner">
-        <span
-          style={{
-            width: 6,
-            height: 6,
-            borderRadius: "50%",
-            background: "#24D155",
-            display: "inline-block",
-            flex: "none",
-          }}
-        />
-      
-        <a
-          href="https://bcc.tbcghana.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="conference-link"
-        >
-          🏛️ Blockchain &amp; Crypto Conference · Accra ·11 December 2026
-        </a>
-      
+    <header className="site-head">
+      <a
+        className="banner"
+        href={CONFERENCE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Flagship Blockchain & Crypto Conference, 11 December 2026, Ghana Shippers House, Accra. More info at bcc.tbcghana.org"
+      >
+        <span className="banner-dot" />
+        <span>Flagship Blockchain &amp; Crypto Conference · Ghana Shippers House, Accra · 11 December 2026</span>
         <span style={{ opacity: 0.6 }}>·</span>
         <Countdown variant="banner" />
-      
-        <style>{`
-          .conference-link {
-            color: inherit;
-            text-decoration: none;
-            cursor: pointer;
-            font-weight: 700;
-            font-size: 16px;
-            display: inline-block;
-            transition: all 0.25s ease;
-          }
-      
-          .conference-link:hover {
-            color: #24D155;
-            text-decoration: underline;
-            text-underline-offset: 4px;
-            transform: scale(1.03);
-          }
-      
-          .conference-link:active {
-            transform: scale(0.98);
-          }
-      
-          .conference-link:focus-visible {
-            outline: 2px solid #24D155;
-            outline-offset: 4px;
-            border-radius: 3px;
-          }
-        `}</style>
-      </div>
+        <span className="banner-more">bcc.tbcghana.org ↗</span>
+      </a>
 
-      <nav className="tbc-nav">
-        <Link
-          href="/"
-          style={{ display: "flex", alignItems: "center", textDecoration: "none" }}
-        >
-          <Image 
-            src="/images/tbc-logos/tbc-ghana-logo-reverse-color.svg" 
-            alt="TBC Ghana Logo" 
-            width={120} 
-            height={32} 
-            priority
-          />
-        </Link>
+      <nav className="nav" aria-label="Main">
+        <div className="wrap nav-inner">
+          <Link href="/" aria-label="TBC Ghana home" style={{ display: "flex" }}>
+            <Logo width={120} height={32} />
+          </Link>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-          <div className="tbc-nav-links">
-            {NAV_LINKS.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  style={{
-                    font: `${isActive ? 600 : 500} 14.5px/1 'Inter'`,
-                    color: isActive ? "#24D155" : "rgba(255,255,255,.82)",
-                    textDecoration: "none",
-                    whiteSpace: "nowrap",
-                  }}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
+          <div className="nav-links">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="nav-link"
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <div className="nav-actions">
             <a
-              href="https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm"
+              href={JOIN_URL}
               target="_blank"
               rel="noopener noreferrer"
-              style={{
-                background: "#24D155",
-                color: "#14211F",
-                font: "700 14px/1 'Inter'",
-                padding: "11px 18px",
-                borderRadius: 8,
-                textDecoration: "none",
-                whiteSpace: "nowrap",
-              }}
+              className="btn btn-primary btn-sm nav-join"
+            >
+              Join the Circle
+            </a>
+            <ThemeToggle />
+            <button
+              type="button"
+              className="icon-btn nav-burger"
+              onClick={() => setOpen((v) => !v)}
+              aria-label="Toggle menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+            >
+              <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true">
+                {open ? (
+                  <path d="M3 3l12 12M15 3L3 15" stroke="currentColor" strokeWidth="1.6" />
+                ) : (
+                  <path d="M2 5h14M2 9h14M2 13h14" stroke="currentColor" strokeWidth="1.6" />
+                )}
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div id="mobile-menu" className={`mobile-panel${open ? " open" : ""}`}>
+          <div className="wrap">
+            {NAV_LINKS.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="mobile-link"
+                aria-current={pathname === link.href ? "page" : undefined}
+                onClick={() => setOpen(false)}
+              >
+                {link.label}
+              </Link>
+            ))}
+            <a
+              href={JOIN_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="btn btn-primary btn-block"
+              style={{ marginTop: 24 }}
             >
               Join the Circle
             </a>
           </div>
-
-          <ThemeToggle />
         </div>
-
-        <button
-          className="tbc-hamburger"
-          onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle menu"
-          aria-expanded={open}
-          style={{
-            background: "none",
-            border: "1px solid rgba(255,255,255,.3)",
-            borderRadius: 8,
-            width: 40,
-            height: 40,
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "pointer",
-            flexDirection: "column",
-            gap: 4,
-          }}
-        >
-          <span style={{ width: 18, height: 2, background: "rgba(255,255,255,0.7)", display: "block" }} />
-          <span style={{ width: 18, height: 2, background: "rgba(255,255,255,0.7)", display: "block" }} />
-          <span style={{ width: 18, height: 2, background: "rgba(255,255,255,0.7)", display: "block" }} />
-        </button>
       </nav>
-
-      <div
-        className={`tbc-mobile-panel${open ? " open" : ""}`}
-        style={{
-          flexDirection: "column",
-          background: "#e1e6e3",
-          gap: 4,
-          borderBottom: "1px solid rgba(20,33,31,0.08)",
-        }}
-      >
-        {NAV_LINKS.map((link) => {
-          const isActive = pathname === link.href;
-          return (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              style={{
-                font: `${isActive ? 600 : 500} 15px/1 'Inter'`,
-                color: isActive ? "#24D155" : "#14211f",
-                textDecoration: "none",
-                padding: "12px 0",
-              }}
-            >
-              {link.label}
-            </Link>
-          );
-        })}
-        <a
-          href="https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm"
-          target="_blank"
-          rel="noopener noreferrer"
-          onClick={() => setOpen(false)}
-          style={{
-            background: "#24D155",
-            color: "#14211f",
-            font: "700 14px/1 'Inter'",
-            padding: "12px 18px",
-            borderRadius: 8,
-            textDecoration: "none",
-            textAlign: "center",
-            marginTop: 8,
-          }}
-        >
-          Join the Circle
-        </a>
-      </div>
-    </div>
+    </header>
   );
 }

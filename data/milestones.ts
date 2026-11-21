@@ -20,7 +20,7 @@ export const MILESTONES = [
   {
     title: "Flagship conference",
     description:
-      "The first flagship blockchain & crypto conference is announced for Nov 2026.",
+      "The first flagship blockchain & crypto conference is announced for Dec 2026.",
     borderColor: "rgba(20,33,31,.14)",
     textColor: "#D03433",
   },

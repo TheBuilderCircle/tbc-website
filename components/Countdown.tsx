@@ -30,13 +30,7 @@ export default function Countdown({ variant }: CountdownProps) {
 
   if (variant === "big") {
     return (
-      <div
-        style={{
-          font: "800 56px/1 'Inter'",
-          color: "#24D155",
-          fontVariantNumeric: "tabular-nums",
-        }}
-      >
+      <div className="num" style={{ fontSize: "clamp(72px, 9vw, 128px)", color: "var(--green)" }}>
         {days}
       </div>
     );

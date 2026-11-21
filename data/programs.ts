@@ -22,7 +22,7 @@ export type Program = {
 
 export const PROGRAMS: Program[] = [
   {
-    title: "Monthly City Meetups",
+    title: "Seasonal City Meetups",
     description:
       "Recurring meetups in Accra, Kumasi, Cape Coast, Tamale and Takoradi focused on onboarding, networking and education.",
     Icon: LocationPinIcon,
@@ -44,7 +44,7 @@ export const PROGRAMS: Program[] = [
       "A recurring X Space, podcast and YouTube show covering blockchain education, African Web3 stories, founder interviews and market insights.",
     Icon: MediaIcon,
     color: "#D03433",
-    badge: "Live every Friday · 19:00 GMT",
+    badge: "Live most Fridays · 19:00 GMT",
   },
   {
     title: "Annual Flagship Conference",
@@ -52,7 +52,7 @@ export const PROGRAMS: Program[] = [
       "A major yearly event positioning Ghana as a leading Web3 hub  keynotes, startup showcases, workshops, hackathons, networking and policy discussions.",
     Icon: CalendarStarIcon,
     color: "#24D155",
-    badge: "First edition · November 2026",
+    badge: "First edition · December 2026",
     dark: true,
   },
 ];

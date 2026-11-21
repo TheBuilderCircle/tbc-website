@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { ABOUT_PILLARS } from "@/data/aboutPillars";
 import { MILESTONES } from "@/data/milestones";
 import ScrollReveal from "@/components/ScrollReveal";
+import StaggerGrid from "@/components/StaggerGrid";
+import { Accent, PageHero, SectionHead } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,218 +20,130 @@ export const metadata: Metadata = {
   },
 };
 
+// Teal milestone text/rules are illegible on the dark page; map them to theme tokens.
+const tone = (c: string) =>
+  c === "#1B4D4A" ? "var(--ink)" : c.startsWith("rgba") ? "var(--rule-strong)" : c;
+
 export default function AboutPage() {
   return (
-    <div style={{ width: "100%" }}>
-      {/* PAGE HERO */}
-      <section style={{ background: "#1B4D4A" }}>
-        <div className="tbc-container tbc-hero-padding" style={{ animation: "tbcUp .6s both" }}>
-          <div
-            style={{
-              font: "600 13px/1 'Inter'",
-              letterSpacing: ".2em",
-              textTransform: "uppercase",
-              color: "#24D155",
-              marginBottom: 22,
-            }}
-          >
-            About TBC Ghana
+    <>
+      <PageHero
+        eyebrow="About TBC Ghana"
+        title={
+          <>
+            One Ecosystem. <Accent>One Circle.</Accent> One Mission.
+          </>
+        }
+        aside={
+          <div style={{ display: "grid", gap: 24 }}>
+            <p className="lede" style={{ color: "var(--ink)" }}>
+              TBC Ghana was founded to solve a simple but persistent problem: Ghana&rsquo;s
+              blockchain and Web3 community has energy, talent and momentum, but no single, trusted
+              institution to sustain it. Communities go quiet after events. Builders lack a
+              pipeline. International protocols don&rsquo;t know who to call when they want to enter
+              the market.
+            </p>
+            <p className="lede">
+              The Builders Circle Ghana changes that. Built on years of grassroots work  meetups,
+              university tours, speaking engagements and online community-building  TBC Ghana is
+              now formalizing into a structured non-profit organization (NGO) with one goal: to become the leading
+              Web3 ecosystem infrastructure in Ghana, and eventually across Africa.
+            </p>
           </div>
-          <h1
-            className="tbc-hero-h1"
-            style={{
-              color: "#fff",
-              maxWidth: 900,
-            }}
-          >
-            One Ecosystem. One Circle. One Mission.
-          </h1>
-        </div>
-      </section>
+        }
+      />
 
-      {/* STORY */}
-      <ScrollReveal>
-      <section className="tbc-container" style={{ maxWidth: 900, paddingTop: 64, paddingBottom: 40 }}>
-        <p style={{ font: "400 22px/1.65 'Inter'", color: "#54615e", marginBottom: 28 }}>
-          TBC Ghana was founded to solve a simple but persistent problem: Ghana&rsquo;s
-          blockchain and Web3 community has energy, talent and momentum, but no single, trusted
-          institution to sustain it. Communities go quiet after events. Builders lack a
-          pipeline. International protocols don&rsquo;t know who to call when they want to enter
-          the market.
-        </p>
-        <p style={{ font: "400 22px/1.65 'Inter'", color: "var(--tbc-text-muted, #54615e)" }}>
-          The Builders Circle Ghana changes that. Built on years of grassroots work  meetups,
-          university tours, speaking engagements and online community-building  TBC Ghana is
-          now formalizing into a structured organization with one goal: to become the leading
-          Web3 ecosystem infrastructure in Ghana, and eventually across Africa.
-        </p>
-      </section>
-      </ScrollReveal>
-
-      <ScrollReveal>
       {/* VISION / MISSION */}
-      <section
-        className="tbc-container tbc-grid-2"
-        style={{ paddingTop: 40, paddingBottom: 64 }}
-      >
-        <div
-          className="tbc-card tbc-card-padding"
-          style={{ borderRadius: 16 }}
-        >
-          <div
-            style={{
-              font: "600 12px/1 'Inter'",
-              letterSpacing: ".16em",
-              textTransform: "uppercase",
-              color: "#24D155",
-              marginBottom: 18,
-            }}
-          >
-            Vision
+      <section className="wrap section-tight">
+        <StaggerGrid className="ruled cols-2 ruled-b">
+          <div style={{ paddingBlock: "32px 44px" }}>
+            <div className="eyebrow" style={{ marginBottom: 24 }}>
+              Vision
+            </div>
+            <p className="statement">
+              To build the leading Web3 ecosystem infrastructure in Ghana that drives blockchain
+              education, community development, ecosystem collaboration, innovation, and market
+              growth across Africa.
+            </p>
           </div>
-          <p style={{ font: "500 21px/1.55 'Inter'", color: "var(--tbc-text, #14211f)" }}>
-            To build the leading Web3 ecosystem infrastructure in Ghana that drives blockchain
-            education, community development, ecosystem collaboration, innovation, and market
-            growth across Africa.
-          </p>
-        </div>
-        <div className="tbc-card tbc-card-padding" style={{ background: "var(--tbc-surface, #ffffff)", borderRadius: 16 }}>
-          <div
-            style={{
-              font: "600 12px/1 'Inter'",
-              letterSpacing: ".16em",
-              textTransform: "uppercase",
-              color: "#24D155",
-              marginBottom: 18,
-            }}
-          >
-            Mission
+          <div style={{ paddingBlock: "32px 44px" }}>
+            <div className="eyebrow" style={{ marginBottom: 24 }}>
+              Mission
+            </div>
+            <p className="statement">
+              Bring together Ghana&rsquo;s Web3 and blockchain community into one structured
+              ecosystem  educating newcomers, developing builders, connecting local talent to
+              global opportunity, and giving protocols a trusted partner in the African market.
+            </p>
           </div>
-          <p style={{ font: "500 21px/1.55 'Inter'", color: "var(--tbc-text, #14211f)" }}>
-            Bring together Ghana&rsquo;s Web3 and blockchain community into one structured
-            ecosystem  educating newcomers, developing builders, connecting local talent to
-            global opportunity, and giving protocols a trusted partner in the African market.
-          </p>
-        </div>
+        </StaggerGrid>
       </section>
-      </ScrollReveal>
 
-      <ScrollReveal>
-      {/* WHAT WE DO / PILLARS */}
-      <section style={{ background: "var(--tbc-bg)", borderTop: "1px solid var(--tbc-border)", borderBottom: "1px solid var(--tbc-border)" }}>
-        <div className="tbc-container tbc-section-padding">
-          <div
-            style={{
-              font: "600 13px/1 'Inter'",
-              letterSpacing: ".18em",
-              textTransform: "uppercase",
-              color: "#24D155",
-              marginBottom: 16,
-            }}
-          >
-            What We Do · Our Pillars
-          </div>
-          <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", marginBottom: 16 }}>
-            Five pillars, one ecosystem.
-          </h2>
-          <p style={{ font: "400 19px/1.6 'Inter'", color: "var(--tbc-text-muted, #54615e)", maxWidth: 620, marginBottom: 48 }}>
+      {/* PILLARS */}
+      <section className="section texture">
+        <div className="wrap">
+          <SectionHead
+            eyebrow="What We Do · Our Pillars"
+            title={
+              <>
+                Five pillars, <Accent>one ecosystem.</Accent>
+              </>
+            }
+          />
+          <p className="lede" style={{ maxWidth: 620, marginTop: -16, marginBottom: 48 }}>
             Everything TBC Ghana does maps to five pillars  each with concrete programs behind
             it.
           </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+          <div className="rows">
             {ABOUT_PILLARS.map((pillar) => (
-              <div
-                key={pillar.number}
-                className="tbc-card tbc-card-padding tbc-split-grid-about"
-                style={{
-                  background: "var(--tbc-surface, #ffffff)",
-                  border: "1px solid var(--tbc-border, rgba(20,33,31,0.08))",
-                  borderRadius: 18,
-                }}
-              >
+              <ScrollReveal key={pillar.number} className="pillar-row">
+                <div className="num" style={{ fontSize: "clamp(36px, 4vw, 56px)" }}>
+                  {pillar.number}
+                </div>
                 <div>
-                  <div style={{ font: "800 44px/1 'Inter'", color: "#24D155", marginBottom: 18 }}>
-                    {pillar.number}
-                  </div>
-                  <h3
-                    style={{
-                      font: "800 28px/1.15 'Inter'",
-                      letterSpacing: "-.02em",
-                      color: "var(--tbc-text, #14211f)",
-                      marginBottom: 12,
-                    }}
-                  >
+                  <h3 className="h3" style={{ marginBottom: 12 }}>
                     {pillar.title}
                   </h3>
-                  <p
-                    style={{
-                      font: "400 16px/1.6 'Inter'",
-                      color: "var(--tbc-text-muted, #54615e)",
-                    }}
-                  >
+                  <p className="body" style={{ maxWidth: 440 }}>
                     {pillar.description}
                   </p>
                 </div>
-                <div style={{ display: "flex", flexDirection: "column", gap: 14, alignSelf: "center" }}>
+                <ul className="bullets">
                   {pillar.bullets.map((bullet) => (
-                    <div key={bullet} style={{ display: "flex", alignItems: "center", gap: 14 }}>
-                      <span
-                        style={{
-                          width: 9,
-                          height: 9,
-                          borderRadius: "50%",
-                          background: "#24D155",
-                          flex: "none",
-                        }}
-                      />
-                      <span
-                        style={{
-                          font: "500 17px/1.4 'Inter'",
-                          color: "var(--tbc-text-muted, #54615e)",
-                        }}
-                      >
-                        {bullet}
-                      </span>
-                    </div>
+                    <li key={bullet}>{bullet}</li>
                   ))}
-                </div>
-              </div>
+                </ul>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
-      </ScrollReveal>
 
-      {/* TIMELINE */}
-      <section className="tbc-container tbc-section-padding">
-        <div
-          style={{
-            font: "600 13px/1 'Inter'",
-            letterSpacing: ".18em",
-            textTransform: "uppercase",
-            color: "#24D155",
-            marginBottom: 16,
-          }}
-        >
-          Milestones
-        </div>
-        <h2 className="tbc-section-h2" style={{ color: "var(--tbc-text, #14211f)", marginBottom: 56 }}>
-          From grassroots to institution.
-        </h2>
-        <div className="tbc-grid-4">
+      {/* MILESTONES */}
+      <section className="wrap section">
+        <SectionHead
+          eyebrow="Milestones"
+          title={
+            <>
+              From grassroots <Accent>to institution.</Accent>
+            </>
+          }
+        />
+        <StaggerGrid className="ruled cols-4 ruled-b">
           {MILESTONES.map((milestone) => (
-            <div
-              key={milestone.title}
-              style={{ borderTop: `2px solid ${milestone.borderColor}`, paddingTop: 22 }}
-            >
-              <div style={{ font: "700 14px/1 'Inter'", color: milestone.textColor, marginBottom: 12 }}>
+            <div key={milestone.title} style={{ paddingBottom: 40 }}>
+              <span
+                aria-hidden="true"
+                style={{ display: "block", height: 2, width: 40, background: tone(milestone.borderColor), marginBottom: 28 }}
+              />
+              <div className="h4" style={{ color: tone(milestone.textColor), marginBottom: 12 }}>
                 {milestone.title}
               </div>
-              <p style={{ font: "400 15px/1.55 'Inter'", color: "var(--tbc-text-muted)" }}>{milestone.description}</p>
+              <p className="small">{milestone.description}</p>
             </div>
           ))}
-        </div>
+        </StaggerGrid>
       </section>
-    </div>
+    </>
   );
 }

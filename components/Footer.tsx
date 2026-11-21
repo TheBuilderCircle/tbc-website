@@ -3,174 +3,96 @@ import Image from "next/image";
 import { FOOTER_ORGANIZATION_LINKS, FOOTER_ENGAGE_LINKS } from "@/data/footerLinks";
 import { WhatsAppIcon } from "@/components/icons";
 
-const linkStyle: React.CSSProperties = {
-  font: "500 14.5px/1 'Inter'",
-  color: "rgba(255,255,255,.72)",
-  textDecoration: "none",
-};
-
-const headingStyle: React.CSSProperties = {
-  font: "700 12px/1 'Inter'",
-  letterSpacing: ".14em",
-  textTransform: "uppercase",
-  color: "#24D155",
-  marginBottom: 18,
-};
+const WHATSAPP = "https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm";
 
 export default function Footer() {
   return (
-    <footer className="tbc-container" style={{ background: "#080c0a", color: "#fff", paddingTop: 72, paddingBottom: 32, maxWidth: "100%" }}>
-      <div className="tbc-footer-grid" style={{ maxWidth: 1160, margin: "0 auto" }}>
-        <div>
-          <div style={{ display: "flex", alignItems: "center", marginBottom: 18 }}>
-            <Image 
-              src="/images/tbc-logos/tbc-ghana-logo-reverse-color.svg" 
-              alt="TBC Ghana Logo" 
-              width={140} 
-              height={38} 
+    <footer className="site-foot on-deep texture">
+      <div className="wrap">
+        <div className="foot-grid">
+          <div>
+            <Image
+              src="/images/tbc-logos/tbc-ghana-logo-reverse-color.svg"
+              alt="TBC Ghana Logo"
+              width={160}
+              height={43}
             />
+            <p className="lede" style={{ marginTop: 24, maxWidth: 320 }}>
+              Building the Web3 Ecosystem of Ghana and Africa.
+            </p>
+            <div style={{ display: "flex", gap: 8, marginTop: 28 }}>
+              <a
+                href="https://x.com/Builders_Circle"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="X (Twitter)"
+                className="icon-btn"
+                style={{ fontWeight: 700, fontSize: 14 }}
+              >
+                X
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                title="WhatsApp Community"
+                className="icon-btn"
+                style={{ color: "var(--green)" }}
+              >
+                <WhatsAppIcon size={17} color="currentColor" />
+              </a>
+              <a href="https://www.linkedin.com/company/the-builders-circle-ghana/" target="_blank" rel="noopener noreferrer" title="LinkedIn" className="icon-btn" style={{ fontWeight: 700, fontSize: 13 }}>
+                in
+              </a>
+            </div>
           </div>
-          <p style={{ font: "400 15px/1.6 'Inter'", color: "rgba(255,255,255,.62)", maxWidth: 280 }}>
-            Building the Web3 Ecosystem of Ghana and Africa.
-          </p>
-          <div style={{ display: "flex", gap: 10, marginTop: 22 }}>
-            <a
-              href="https://x.com/Builders_Circle"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="X (Twitter)"
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: 8,
-                border: "1px solid rgba(255,255,255,.16)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fff",
-                textDecoration: "none",
-                font: "700 14px/1 'Inter'",
-              }}
-            >
-              X
-            </a>
-            <a
-              href="https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="WhatsApp Community"
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: 8,
-                border: "1px solid rgba(255,255,255,.16)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#24D155",
-                textDecoration: "none",
-              }}
-            >
-              <WhatsAppIcon size={18} color="#24D155" />
-            </a>
-            <a
-              href="https://www.linkedin.com/company/the-builders-circle-ghana/"
-              title="LinkedIn"
-              style={{
-                width: 38,
-                height: 38,
-                borderRadius: 8,
-                border: "1px solid rgba(255,255,255,.16)",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#fff",
-                textDecoration: "none",
-                font: "700 13px/1 'Inter'",
-              }}
-            >
-              in
-            </a>
-          </div>
-        </div>
 
-        <div>
-          <div style={headingStyle}>Organization</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {FOOTER_ORGANIZATION_LINKS.map((link) => (
-              <Link key={link.href} href={link.href} style={linkStyle}>
-                {link.label}
-              </Link>
-            ))}
+          <div>
+            <div className="eyebrow">Organization</div>
+            <div className="foot-links">
+              {FOOTER_ORGANIZATION_LINKS.map((link) => (
+                <Link key={link.href} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="eyebrow">Engage</div>
+            <div className="foot-links">
+              {FOOTER_ENGAGE_LINKS.map((link) => (
+                <Link key={link.label} href={link.href}>
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <div className="eyebrow">Contact</div>
+            <div className="foot-links">
+              <a href="mailto:thebuilderscircleghana@gmail.com" style={{ overflowWrap: "anywhere" }}>
+                thebuilderscircleghana@gmail.com
+              </a>
+              <a
+                href={WHATSAPP}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, color: "var(--green)" }}
+              >
+                <WhatsAppIcon size={16} color="currentColor" />
+                <span>Join WhatsApp Community</span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div style={headingStyle}>Engage</div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-            {FOOTER_ENGAGE_LINKS.map((link) => (
-              <Link key={link.label} href={link.href} style={linkStyle}>
-                {link.label}
-              </Link>
-            ))}
-          </div>
+        <div className="foot-bottom mono">
+          <span>© 2026 The Builders Circle Ghana, a non-profit organization (NGO). All rights reserved.</span>
+          <span>www.tbcghana.org</span>
+          <span>Developed By KayabaLabs</span>
         </div>
-
-        <div>
-          <div style={headingStyle}>Contact</div>
-          <a
-            href="mailto:thebuilderscircleghana@gmail.com"
-            style={{
-              font: "500 14.5px/1.5 'Inter'",
-              color: "rgba(255,255,255,.72)",
-              textDecoration: "none",
-              display: "block",
-              marginBottom: 12,
-            }}
-          >
-            thebuilderscircleghana@gmail.com
-          </a>
-          <a
-            href="https://chat.whatsapp.com/Jd9W4t16aYUH3UAONN0Ivm"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              font: "500 14.5px/1.5 'Inter'",
-              color: "#24D155",
-              textDecoration: "none",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-            }}
-          >
-            <WhatsAppIcon size={16} color="#24D155" />
-            <span>Join WhatsApp Community</span>
-          </a>
-        </div>
-      </div>
-
-      <div
-        style={{
-          maxWidth: 1160,
-          margin: "52px auto 0",
-          paddingTop: 26,
-          borderTop: "1px solid rgba(255,255,255,.1)",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          flexWrap: "wrap",
-          gap: 12,
-        }}
-      >
-        <span style={{ font: "400 13px/1 'Inter'", color: "rgba(255,255,255,.42)" }}>
-          © 2026 The Builders Circle Ghana. All rights reserved.
-        </span>
-        <span style={{ font: "400 13px/1 'Inter'", color: "rgba(255,255,255,.42)" }}>
-          www.tbcghana.org
-        </span>
-        <span style={{ font: "400 13px/1 'Inter'", color: "rgba(255,255,255,.42)" }}>
-          Developed By KayabaLabs
-        </span>
       </div>
     </footer>
   );

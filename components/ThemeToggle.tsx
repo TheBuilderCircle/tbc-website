@@ -5,32 +5,17 @@ import { SunIcon, MoonIcon } from "@/components/icons";
 
 export default function ThemeToggle() {
   const { theme, toggleTheme, mounted } = useTheme();
+  const isDark = !mounted || theme === "dark";
 
   return (
     <button
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle dark mode"
-      title={mounted && theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      style={{
-        background: "rgba(255, 255, 255, 0.08)",
-        border: "1px solid rgba(255, 255, 255, 0.16)",
-        borderRadius: 8,
-        width: 36,
-        height: 36,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        cursor: "pointer",
-        color: "#ffffff",
-        transition: "background-color 0.2s ease, border-color 0.2s ease",
-      }}
+      title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="icon-btn"
     >
-      {mounted && theme === "dark" ? (
-        <SunIcon size={18} color="#24D155" />
-      ) : (
-        <MoonIcon size={18} color="#ffffff" />
-      )}
+      {isDark ? <SunIcon size={17} color="currentColor" /> : <MoonIcon size={17} color="currentColor" />}
     </button>
   );
 }

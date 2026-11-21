@@ -1,111 +1,31 @@
-"use client";
-
 import Image from "next/image";
 import { COMMUNITY_PARTNERS } from "@/data/communityPartners";
+import StaggerGrid from "@/components/StaggerGrid";
 
 export default function PartnerCardsGrid() {
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))",
-        gap: 24,
-        width: "100%",
-        maxWidth: 1100,
-        margin: "0 auto",
-      }}
-    >
+    <StaggerGrid className="ruled cols-3 ruled-b" staggerDelay={0.05}>
       {COMMUNITY_PARTNERS.map((partner) => (
-        <div
-          key={partner.name}
-          style={{
-            background: "var(--tbc-surface, #FFFFFF)",
-            border: "1px solid var(--tbc-border, rgba(20, 33, 31, 0.08))",
-            borderRadius: 20,
-            padding: "28px 24px",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 14,
-            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.06)",
-            transition: "box-shadow 0.25s ease, transform 0.25s ease, background-color 0.25s ease, border-color 0.25s ease",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.boxShadow =
-              "0 10px 36px rgba(0, 0, 0, 0.13)";
-            (e.currentTarget as HTMLDivElement).style.transform = "translateY(-4px)";
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.boxShadow =
-              "0 4px 20px rgba(0, 0, 0, 0.06)";
-            (e.currentTarget as HTMLDivElement).style.transform = "translateY(0)";
-          }}
-        >
-          {/* Logo */}
-          <div
-            style={{
-              height: 64,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              width: "100%",
-            }}
-          >
+        <article key={partner.name} className="partner-cell">
+          <div className="logo-tile">
             <Image
               src={partner.logo}
               alt={`${partner.name} logo`}
               width={180}
               height={60}
-              style={{
-                objectFit: "contain",
-                maxHeight: 56,
-                maxWidth: "100%",
-                width: "auto",
-                height: "auto",
-                transform: partner.logoScale ? `scale(${partner.logoScale})` : undefined,
-                transformOrigin: "center center",
-              }}
+              style={{ transform: partner.logoScale ? `scale(${partner.logoScale})` : undefined }}
             />
           </div>
 
-          {/* Name */}
-          <h3
-            style={{
-              font: "700 17px/1.3 'Inter'",
-              color: "var(--tbc-text, #14211F)",
-              margin: 0,
-              textAlign: "center",
-            }}
-          >
+          <h3 className="h4" style={{ marginTop: 24 }}>
             {partner.name}
           </h3>
-
-          {/* Description */}
-          <p
-            style={{
-              font: "400 13.5px/1.65 'Inter'",
-              color: "var(--tbc-text-muted, #54615E)",
-              margin: 0,
-              textAlign: "center",
-              flexGrow: 1,
-            }}
-          >
+          <p className="small" style={{ marginTop: 10 }}>
             {partner.description}
           </p>
 
-          {/* Links */}
           {partner.links.length > 0 && (
-            <div
-              style={{
-                display: "flex",
-                flexWrap: "wrap",
-                justifyContent: "center",
-                gap: 8,
-                paddingTop: 14,
-                borderTop: "1px solid var(--tbc-border, rgba(20, 33, 31, 0.08))",
-                width: "100%",
-              }}
-            >
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: "auto", paddingTop: 24 }}>
               {partner.links.map((link) => (
                 <a
                   key={link.title}
@@ -113,16 +33,16 @@ export default function PartnerCardsGrid() {
                   target="_blank"
                   rel="noopener noreferrer"
                   title={link.title}
-                  className="tbc-partner-badge"
+                  className="tag"
                 >
-                  <link.Icon size={14} />
+                  <link.Icon size={13} color="currentColor" />
                   <span>{link.title}</span>
                 </a>
               ))}
             </div>
           )}
-        </div>
+        </article>
       ))}
-    </div>
+    </StaggerGrid>
   );
 }

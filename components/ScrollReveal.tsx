@@ -11,73 +11,43 @@ interface ScrollRevealProps {
   children: React.ReactNode;
   className?: string;
   delay?: number;
-  direction?: "up" | "down" | "left" | "right" | "none";
-  duration?: number;
-  distance?: number;
-  triggerOffset?: string;
   style?: React.CSSProperties;
+  as?: "div" | "section";
 }
 
+/** Quiet fade-up on first scroll into view. Hidden state lives in CSS
+ *  (`.js [data-reveal]`), and reduced-motion users never see it hidden. */
 export default function ScrollReveal({
   children,
-  className = "",
+  className,
   delay = 0,
-  direction = "up",
-  duration = 0.8,
-  distance = 50,
-  triggerOffset = "top 85%",
   style,
+  as: Tag = "div",
 }: ScrollRevealProps) {
-  const container = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
     () => {
-      let x = 0;
-      let y = 0;
-
-      switch (direction) {
-        case "up":
-          y = distance;
-          break;
-        case "down":
-          y = -distance;
-          break;
-        case "left":
-          x = distance;
-          break;
-        case "right":
-          x = -distance;
-          break;
-      }
-
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
       gsap.fromTo(
-        container.current,
-        {
-          opacity: 0,
-          x,
-          y,
-        },
+        ref.current,
+        { opacity: 0, y: 16 },
         {
           opacity: 1,
-          x: 0,
           y: 0,
-          duration,
+          duration: 0.7,
           delay,
-          ease: "power3.out",
-          scrollTrigger: {
-            trigger: container.current,
-            start: triggerOffset,
-            toggleActions: "play none none reverse",
-          },
+          ease: "power2.out",
+          scrollTrigger: { trigger: ref.current, start: "top 88%", once: true },
         }
       );
     },
-    { scope: container }
+    { scope: ref }
   );
 
   return (
-    <div ref={container} className={className} style={{ ...style, opacity: 0 }}>
+    <Tag ref={ref} data-reveal="" className={className} style={style}>
       {children}
-    </div>
+    </Tag>
   );
 }

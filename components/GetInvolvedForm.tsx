@@ -2,81 +2,43 @@
 
 import { INTEREST_OPTIONS } from "@/data/getInvolvedOptions";
 
-const inputStyle: React.CSSProperties = {
-  width: "100%",
-  padding: "14px 15px",
-  border: "1px solid rgba(20,33,31,0.12)",
-  borderRadius: 10,
-  fontSize: 15,
-  color: "var(--tbc-text)",
-  background: "var(--tbc-input-bg)",
-};
-
-const selectStyle: React.CSSProperties = {
-  ...inputStyle,
-  color: "var(--tbc-text-muted)",
-};
-
-const labelTextStyle: React.CSSProperties = {
-  font: "600 13px/1 'Inter'",
-  color: "var(--tbc-text)",
-  display: "block",
-  marginBottom: 9,
-};
-
 export default function GetInvolvedForm() {
   return (
-    <div
-      className="tbc-card tbc-card-padding"
-      style={{ background: "#fff", border: "1px solid rgba(20,33,31,0.08)", borderRadius: 20 }}
-    >
-      <h2 style={{ font: "800 30px/1.15 'Inter'", letterSpacing: "-.02em", color: "var(--tbc-text)", marginBottom: 8 }}>
-        Join TBC Ghana
-      </h2>
-      <p style={{ font: "400 16px/1.5 'Inter'", color: "var(--tbc-text-muted)", marginBottom: 32 }}>
-        Tell us a little about you and where you&rsquo;d like to plug in.
-      </p>
+    <div className="split">
+      <div>
+        <h2 className="h2" style={{ marginBottom: 18 }}>
+          Join TBC Ghana
+        </h2>
+        <p className="lede">Tell us a little about you and where you&rsquo;d like to plug in.</p>
+      </div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div className="tbc-form-grid">
-          <label style={{ display: "block" }}>
-            <span style={labelTextStyle}>Full Name</span>
-            <input type="text" placeholder="Your name" style={inputStyle} />
+        <div className="form-grid">
+          <label className="field">
+            <span className="field-label">Full Name</span>
+            <input className="input" type="text" placeholder="Your name" />
           </label>
-          <label style={{ display: "block" }}>
-            <span style={labelTextStyle}>Email Address</span>
-            <input type="email" placeholder="you@email.com" style={inputStyle} />
+          <label className="field">
+            <span className="field-label">Email Address</span>
+            <input className="input" type="email" placeholder="you@email.com" />
           </label>
-          <label style={{ display: "block" }}>
-            <span style={labelTextStyle}>City</span>
-            <input type="text" placeholder="e.g. Accra" style={inputStyle} />
+          <label className="field">
+            <span className="field-label">City</span>
+            <input className="input" type="text" placeholder="e.g. Accra" />
           </label>
-          <label style={{ display: "block" }}>
-            <span style={labelTextStyle}>Most interested in</span>
-            <select style={selectStyle} defaultValue={INTEREST_OPTIONS[0]}>
+          <label className="field">
+            <span className="field-label">Most interested in</span>
+            <select className="input" defaultValue={INTEREST_OPTIONS[0]}>
               {INTEREST_OPTIONS.map((option) => (
                 <option key={option}>{option}</option>
               ))}
             </select>
           </label>
-          <label className="tbc-form-span-2" style={{ display: "block", gridColumn: "span 2" }}>
-            <span style={labelTextStyle}>How did you hear about TBC Ghana?</span>
-            <input type="text" placeholder="X, a friend, an event…" style={inputStyle} />
+          <label className="field span-2">
+            <span className="field-label">How did you hear about TBC Ghana?</span>
+            <input className="input" type="text" placeholder="X, a friend, an event…" />
           </label>
         </div>
-        <button
-          type="submit"
-          style={{
-            marginTop: 28,
-            width: "100%",
-            background: "#24D155",
-            color: "#14211F",
-            font: "700 16px/1 'Inter'",
-            padding: 17,
-            border: "none",
-            borderRadius: 10,
-            cursor: "pointer",
-          }}
-        >
+        <button type="submit" className="btn btn-primary btn-block btn-arrow" style={{ marginTop: 40 }}>
           Submit
         </button>
       </form>

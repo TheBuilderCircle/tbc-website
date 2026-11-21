@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
+import { Accent, PageHero } from "@/components/editorial";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -18,89 +19,40 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div style={{ width: "100%" }}>
-      <section style={{ background: "#1B4D4A" }}>
-        <div className="tbc-container tbc-hero-padding" style={{ animation: "tbcUp .6s both" }}>
-          <div
-            style={{
-              font: "600 13px/1 'Inter'",
-              letterSpacing: ".2em",
-              textTransform: "uppercase",
-              color: "#24D155",
-              marginBottom: 22,
-            }}
-          >
-            Contact
-          </div>
-          <h1
-            className="tbc-hero-h1"
-            style={{
-              color: "#fff",
-              maxWidth: 820,
-              marginBottom: 24,
-            }}
-          >
-            Let&rsquo;s Build Together.
-          </h1>
-          <p style={{ font: "400 20px/1.6 'Inter'", color: "rgba(255,255,255,.76)", maxWidth: 640 }}>
-            For partnerships, media inquiries, or general questions, reach out below.
-          </p>
-        </div>
-      </section>
+    <>
+      <PageHero
+        eyebrow="Contact"
+        title={
+          <>
+            Let&rsquo;s <Accent>Build Together.</Accent>
+          </>
+        }
+        lede="For partnerships, media inquiries, or general questions, reach out below."
+      />
 
-      <section className="tbc-container tbc-split-grid-contact" style={{ paddingTop: 64, paddingBottom: 80 }}>
-        <div>
-          <div style={{ marginBottom: 36 }}>
-            <div
-              style={{
-                font: "600 12px/1 'Inter'",
-                letterSpacing: ".16em",
-                textTransform: "uppercase",
-                color: "#24D155",
-                marginBottom: 12,
-              }}
-            >
-              Email
-            </div>
-            <a href="mailto:thebuilderscircleghana@gmail.com" style={{ font: "600 20px/1.3 'Inter'", color: "var(--tbc-text, #14211f)" }}>
+      <section className="wrap split" style={{ paddingBottom: "clamp(72px, 10vw, 136px)" }}>
+        <div className="rows">
+          <div className="contact-row">
+            <div className="eyebrow">Email</div>
+            <a href="mailto:thebuilderscircleghana@gmail.com" className="text-link h4" style={{ overflowWrap: "anywhere" }}>
               thebuilderscircleghana@gmail.com
             </a>
           </div>
-          <div style={{ marginBottom: 36 }}>
-            <div
-              style={{
-                font: "600 12px/1 'Inter'",
-                letterSpacing: ".16em",
-                textTransform: "uppercase",
-                color: "#24D155",
-                marginBottom: 12,
-              }}
-            >
-              Office
-            </div>
-            <p style={{ font: "500 18px/1.5 'Inter'", color: "var(--tbc-text, #14211f)" }}>
+          <div className="contact-row">
+            <div className="eyebrow">Office</div>
+            <p className="h4" style={{ fontWeight: 500 }}>
               14 Nii Owoo Street
               <br />
               Dzorwulu, Accra, Ghana
             </p>
           </div>
-          <div>
-            <div
-              style={{
-                font: "600 12px/1 'Inter'",
-                letterSpacing: ".16em",
-                textTransform: "uppercase",
-                color: "#24D155",
-                marginBottom: 14,
-              }}
-            >
-              Social
-            </div>
-            <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-              <a href="https://x.com/Builders_Circle" target="_blank" rel="noopener noreferrer" style={{ font: "500 16px/1.3 'Inter'", color: "var(--tbc-text, #14211f)" }}>
+          <div className="contact-row">
+            <div className="eyebrow">Social</div>
+            <div style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-start" }}>
+              <a href="https://x.com/Builders_Circle" target="_blank" rel="noopener noreferrer" className="text-link">
                 X (Twitter) · @Builders_Circle
               </a>
-              <a href="#" style={{ font: "500 16px/1.3 'Inter'", color: "var(--tbc-text, #14211f)" }}>
+              <a href="https://www.linkedin.com/company/the-builders-circle-ghana/" target="_blank" rel="noopener noreferrer" className="text-link">
                 LinkedIn · The Builders Circle Ghana
               </a>
             </div>
@@ -108,6 +60,6 @@ export default function ContactPage() {
         </div>
         <ContactForm />
       </section>
-    </div>
+    </>
   );
 }

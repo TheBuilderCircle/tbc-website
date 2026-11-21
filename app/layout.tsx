@@ -1,13 +1,22 @@
 import type { Metadata } from "next";
-import Script from "next/script";
+import { Inter, JetBrains_Mono, Instrument_Serif } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 import SmoothScroller from "@/components/SmoothScroller";
-import CustomCursor from "@/components/CustomCursor";
 import { ThemeProvider } from "@/lib/theme";
 import { THEME_INIT_SCRIPT } from "@/lib/theme-constants";
 
 import "./globals.css";
+
+const sans = Inter({ subsets: ["latin"], variable: "--font-sans", display: "swap" });
+const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono", display: "swap" });
+const serif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  style: "italic",
+  variable: "--font-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.tbcafrica.org"),
@@ -77,7 +86,7 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "NGO",
   name: "The Builders Circle Ghana",
   alternateName: ["TBC Ghana", "The Builders Circle"],
   url: "https://www.tbcafrica.org",
@@ -105,7 +114,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" suppressHydrationWarning>
+    <html
+      lang="en"
+      data-theme="dark"
+      className={`${sans.variable} ${mono.variable} ${serif.variable}`}
+      suppressHydrationWarning
+    >
       <head>
         <script
           dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
@@ -115,13 +129,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        style={{
-          fontFamily: "var(--font-inter), system-ui, sans-serif",
-        }}
-      >
+      <body>
         <ThemeProvider>
-          <CustomCursor />
           <SmoothScroller>
             <Nav />
             <main id="main-content">{children}</main>
